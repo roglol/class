@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif,
+        }
+        #peopleModule {
+            padding: 0;
+            }
+        #peopleModule li {
+            display: inline-block;
+            list-style-type: none;
+            background-color: seagreen;
+            border-radius: 5px;
+            padding: 6px;
+            margin: 5px;
+            width: 200px;
+            /* text-align: center; */
+            cursor: pointer;
+            color: white;
+            font-weight: bolder;
+            opacity: 0.85;
+            transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        #peopleModule li:hover {
+            opacity: 1
+        }
+        #peopleModule li span {
+            display: inline-block;
+            width: 160px;
+             /* overflow: hidden;  */
+        }
+        #peopleModule li i {
+            cursor: pointer;
+            font-weight: bold;
+            background: #666;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-style: normal;
+            margin-left: 15px;
+        }
+
+    </style>
+</head>
+<body>
+        <div id="peopleModule">
+        <h1>People</h1>
+        <input placeholder="name" type="text">
+        <button id="addPerson">Add Person</button>
+        <ul id="people">
+            <script id="template" type="text/template">
+                {{#people}}
+                    <li>
+                        <span>{{.}}</span>
+                        <i class="del">X</i>
+                    </li>
+                {{/people}}
+            </script>
+        </ul>
+    </div>
+        <script src ='js/lib/jquery.min.js'></script>
+    <!-- <script src = 'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js'></script> -->
+    <script src = 'app.js'></script>
+</body>
+</html>
