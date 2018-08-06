@@ -22,31 +22,31 @@ document.getElementById('button3').addEventListener('click', function(){
         return b-a
     })
     for(i=0; i<arr.length; i++){
-        console.log(container.children[i])
         container.children[i].innerHTML = arr[i]
     }
     
 })
 
 document.getElementById('button1').addEventListener('click', function(){
-    for (let i = arr.length - 1; i >= 0; i--) {
+    for (let i = arr.length -1; i >= 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
-        container.children[i].innerHTML = temp
+        container.children[i].innerHTML = arr[i]
 
     }
 })
 
 container.addEventListener('click', function(event){
     if(event.target.className != 'container'){
-       event.target.style.display = 'none'
+       event.target.remove()
        let index = arr.indexOf(parseInt(event.target.innerHTML));
         if (index > -1) {
          arr.splice(index, 1);
         }
 }
+
 
 })
 
