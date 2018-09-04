@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+   <script>
+ function fibMemo(index, cache) {
+     cache = cache || []
+     if(cache[index]) return cache[index]
+     else{
+          if(index <3){
+              return 1
+          }
+          else{
+              cache[index] = fibMemo(index-1, cache) + fibMemo(index-2, cache)
+          }
+          return cache[index]
+     }
+    
+
+ }
+ console.log(fibMemo(4))
+</script>
+</body>
+</html>
