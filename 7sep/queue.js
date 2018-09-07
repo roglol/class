@@ -104,6 +104,11 @@ class PQueue {
     remove(el){
         this.tasks.splice(this.tasks.indexOf(el), 1)
     }
+    subSet(arr){
+        return arr.forEach(el =>{
+             return this.tasks.includes(el)
+        })
+    }
 }
 
 let pQueue = new PQueue();
