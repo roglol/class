@@ -105,9 +105,10 @@ class PQueue {
         this.tasks.splice(this.tasks.indexOf(el), 1)
     }
     subSet(arr){
-        return arr.forEach(el =>{
-             return this.tasks.includes(el)
-        })
+       for(let i=0; i < arr.tasks.length; i++){
+           if (!this.tasks.includes(arr.tasks[i])) return false
+           return true
+       }
     }
 }
 
@@ -117,11 +118,31 @@ pQueue.add(4)
 pQueue.add(5)
 pQueue.add(5)
 console.log(pQueue)
-// console.log(pQueue.has(3))
-pQueue.remove(3)
-console.log(pQueue.has(10))
 
+class valeri {
+    constructor(){
+        this.tasks = [];
+    }
+    add(el){
+        if(this.tasks.indexOf(el) === -1){
+            this.tasks.push(el)
+        }
+    }
+    has(el){
+      if(this.tasks.includes(el)) return true
+      return false
+    }
+    remove(el){
+        this.tasks.splice(this.tasks.indexOf(el), 1)
+    }
+  
+}
+let vaime = new valeri()
+vaime.add(3)
+vaime.add(4)
+console.log(vaime)
 
+console.log(pQueue.subSet(vaime))
 
 
 
