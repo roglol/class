@@ -110,6 +110,15 @@ class PQueue {
            return true
        }
     }
+    gia(arr){
+        let arr1 = []
+        for(let i=0; i < arr.tasks.length; i++){
+            if(this.tasks.includes(arr.tasks[i])){
+                arr1.push(arr.tasks[i])
+            }
+        }
+        return arr1
+    }
 }
 
 let pQueue = new PQueue();
@@ -143,6 +152,7 @@ vaime.add(4)
 console.log(vaime)
 
 console.log(pQueue.subSet(vaime))
+console.log(pQueue.gia(vaime))
 
 
 
