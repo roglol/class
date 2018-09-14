@@ -1,0 +1,15 @@
+{
+  "name": "display-time",
+  "version": "1.0.0",
+  "description": "'davalebao'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "'Otar potskhoraia'",
+  "license": "MIT",
+  "dependencies": {
+    "upper-case": "^1.1.3"
+  }
+}
