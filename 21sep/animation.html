@@ -1,4 +1,4 @@
-!doctype html>
+
 <html>
     <head>
 	    <script>
@@ -47,7 +47,9 @@
 			}
 
 			function draw() {    
-				ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+				// ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+				ctx.fillStyle = 'white';
+    ctx.fillRect(0,0,canvasWidth,canvasHeight)
 				
 				ctx.fillStyle = 'Navy';
 				ctx.beginPath();

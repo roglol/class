@@ -11,22 +11,12 @@
 </head>
 <body>
    <script>
- function fibMemo(index, cache) {
-     cache = cache || []
-     if(cache[index]) return cache[index]
-     else{
-          if(index <3){
-              return 1
-          }
-          else{
-              cache[index] = fibMemo(index-1, cache) + fibMemo(index-2, cache)
-          }
-          return cache[index]
-     }
-    
-
- }
- console.log(fibMemo(4))
+ 
+    let updateFunctions = []
+    for(let i = 0; i < 2; i++){
+        updateFunctions.push(function () {return i})
+    }
+    console.log(updateFunctions[0]())
 </script>
 </body>
 </html>

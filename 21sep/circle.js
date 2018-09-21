@@ -1,5 +1,5 @@
 window.onload = function(){
-    const canvas = document.getElementById('canvas')
+    const canvas = document.getElementById('gameCanvas')
     const ctx = canvas.getContext('2d');
 
     const scores = [100,40,51,78,90,85]
