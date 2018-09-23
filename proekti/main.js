@@ -1,5 +1,11 @@
 let direction = 99
-const height = 10
+let x = 100
+const height = 20
+let canvasWidth = 400
+let canvasHeight = 400
+let snakeLength = 3
+let foodLength = 1
+let snakeSpeed = 2
 let eaten = true;
 let vsio = false;
 let interval
@@ -19,7 +25,7 @@ class Apple{
 class Food{
     constructor(){
        this.arr = []
-       this.length = 1
+       this.length = foodLength
     }
     create(){
         for(let i = 0; i < this.arr.length; i++){
@@ -28,7 +34,7 @@ class Food{
      }
      init(){
         for(let i = 0; i < this.length; i++){
-            let applei = new Apple(Math.random() * 380 +5,Math.random() * 380 + 5,20,20,'black')
+            let applei = new Apple(Math.random() * canvasWidth -15,Math.random() * canvasHeight - 15,height,height,'black')
             this.arr.push(applei)
      }
     }
@@ -52,7 +58,7 @@ class Snake {
 class Snaka {
     constructor(){
        this.arr = []
-       this.length = 50
+       this.length = snakeLength
     }
     create(){
        for(let i = 0; i < this.arr.length; i++){
@@ -61,21 +67,27 @@ class Snaka {
     }
     init(){
         for(let i = 0; i < this.length; i++){
-            let snakei = new Snake(100,x-height * i,20,2 * height,'red')
+            let snakei = new Snake(100,x-height * i,height, height,'red')
             this.arr.push(snakei)
        }
     }
+    delete(){
+        this.arr.length = 0
+    }
 }
-let x = 100
 
 let snaka = new Snaka()
 snaka.init()
 
-let canvas, ctx, canvasWidth, canvasHeight;
+let canvas, ctx
 function handleMouseClick () {
     if(vsio) {
+        snaka.delete()
+        snaka.length = snakeLength
+        snaka.init()
+        snaka.create()
+        direction = 3;
         vsio = false;
-        console.log(vsio)
     }
 }
 window.requestAnimFrame = function() {
@@ -121,7 +133,7 @@ function update(){
     for(let i = snaka.arr.length-1; i>=0; i--){
           if(direction ==0){
               if(i==0){
-                  snaka.arr[i].topLeftX = snaka.arr[i].topLeftX - 5
+                  snaka.arr[i].topLeftX = snaka.arr[i].topLeftX - snakeSpeed
               }
               else{
         snaka.arr[i].topLeftX = snaka.arr[i-1].topLeftX
@@ -130,7 +142,7 @@ function update(){
           }
           else if(direction ==1){
             if(i==0){
-                snaka.arr[i].topLeftY = snaka.arr[i].topLeftY - 5
+                snaka.arr[i].topLeftY = snaka.arr[i].topLeftY - snakeSpeed
             }
             else{
       snaka.arr[i].topLeftX = snaka.arr[i-1].topLeftX
@@ -139,7 +151,7 @@ function update(){
           }
           else if(direction==2){
             if(i==0){
-                snaka.arr[i].topLeftX = snaka.arr[i].topLeftX + 5
+                snaka.arr[i].topLeftX = snaka.arr[i].topLeftX + snakeSpeed
             }
             else{
       snaka.arr[i].topLeftX = snaka.arr[i-1].topLeftX
@@ -148,7 +160,7 @@ function update(){
           }
           else if(direction==3){
             if(i==0){
-                snaka.arr[i].topLeftY = snaka.arr[i].topLeftY  + 5
+                snaka.arr[i].topLeftY = snaka.arr[i].topLeftY  + snakeSpeed
             }
             else{
       snaka.arr[i].topLeftX = snaka.arr[i-1].topLeftX
@@ -159,10 +171,10 @@ function update(){
     }
 }
 function testCollision(rect1, rect2){
-      return((rect1.topLeftX <=rect2.topLeftX + 20) &&
-            (rect2.topLeftX <=rect1.topLeftX + 20 ) &&
-            (rect1.topLeftY <=rect2.topLeftY + 20) &&
-            (rect2.topLeftY <=rect1.topLeftY + 20))
+      return((rect1.topLeftX <=rect2.topLeftX + height) &&
+            (rect2.topLeftX <=rect1.topLeftX + height) &&
+            (rect1.topLeftY <=rect2.topLeftY + height) &&
+            (rect2.topLeftY <=rect1.topLeftY + height))
 }
 function draw() {
     // clear canvas
@@ -188,22 +200,22 @@ function draw() {
             eaten = true;
             let new_X, new_Y
             if(direction ==0){
-                new_X = snaka.arr[0].topLeftX - 20
+                new_X = snaka.arr[0].topLeftX - height
                 new_Y = snaka.arr[0].topLeftY 
             }
            else if(direction ==1){
                 new_X = snaka.arr[0].topLeftX 
-                new_Y = snaka.arr[0].topLeftY  - 20
+                new_Y = snaka.arr[0].topLeftY  - height
             }
             else if(direction ==2){
-                new_X = snaka.arr[0].topLeftX + 20
+                new_X = snaka.arr[0].topLeftX + height
                 new_Y = snaka.arr[0].topLeftY 
             }
            else  if(direction ==3){
                 new_X = snaka.arr[0].topLeftX 
-                new_Y = snaka.arr[0].topLeftY + 20
+                new_Y = snaka.arr[0].topLeftY + height
             }
-            snaka.arr.unshift(new Snake(new_X, new_Y,20,2 * height,'red'))
+            snaka.arr.unshift(new Snake(new_X, new_Y,height, height,'red'))
             snaka.length++
     }
     
@@ -251,13 +263,13 @@ function gameOver(){
     //         vsio = true
     //     }
     // }
-    if(snaka.arr[0].topLeftX > 400 ){
+    if(snaka.arr[0].topLeftX > canvasWidth ){
         vsio = true
    }
    if(snaka.arr[0].topLeftX < 0 ){
      vsio = true
   }
-   if(snaka.arr[0].topLeftY > 400){
+   if(snaka.arr[0].topLeftY > canvasHeight){
     vsio = true
   }
  if(snaka.arr[0].topLeftY < 0){
