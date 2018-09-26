@@ -4,88 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="main.css">
+    <title>weather</title>
+    <style>
+    </style>
 </head>
 <body>
-    <canvas id='gc' width = '400' height = '400'></canvas>
-    <script>
-        let ctx, canv
- window.onload = function(){
-     canv = document.getElementById('gc')
-     ctx = canv.getContext('2d')
-     document.addEventListener('keydown', keyPush)
-     setInterval(game, 1000/15)
- }
- let px=py=10
- let gs=tc=20
- let ax=ay=15
- let xv=yv=0;
- let trail = []
- let tail = 5
-
- function game(){
-     px+= xv;
-     py+= yv;
-     if(px<0){
-         px = tc - 1
-         console.log('she yleo')
-     }
-     if(px>tc-1){
-         px = 0
-     }
-     if(py<0){
-         py = tc - 1
-     }
-     if(py>tc-1){
-         py = 0
-     }
-     ctx.fillStyle = 'black'
-     ctx.fillRect(0,0,canv.width,canv.height)
-
-      ctx.fillStyle = 'lime'
-      for(let i = 0; i <trail.length; i++){
-        ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs,gs)
-        if(trail[i].x==px &&trail[i].y==py){
-           tail = 5
-      }
-      }
-
-      trail.push({x:px, y:py})
-      while(trail.length>tail){
-          trail.shift()
-      }
-      if(ax==px && ay==py){
-           tail++
-           ax = Math.floor(Math.random()*tc)
-           ay = Math.floor(Math.random()*tc)
-
-      }
-    
-
-     ctx.fillStyle = 'red'
-     ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2)
-
-     
-
- }
- function keyPush(evt){
-      switch(evt.keyCode){
-          case 37:
-          xv = -0.8; yv = 0;
-          break;
-          case 38:
-          xv=0; yv=-0.8;
-          break;
-          case 39:
-          xv=0.8; yv=0;
-          break;
-          case 40:
-          xv=0; yv=0.8;
-          break
-      }
- }
-        
-        
-</script>
+    <canvas width = '600' height = '400' id='myCanvas'></canvas>
+    <svg class="burgerSvg">
+            <path d="M0,5 30,5" stroke="#b2bbbd" stroke-width="5" />
+            <path d="M0,14 30,14" stroke="#b2bbbd" stroke-width="5" />
+            <path d="M0,23 30,23" stroke="#b2bbbd" stroke-width="5" />
+          </svg>
+    <nav>
+          <div>
+              <p>Difficulty</p>
+              <p>Speed</p>
+              <p>Length</p>
+              <p>Width</p>
+              <p>Height</p>
+              <p>Apples</p>
+          </div>
+          <div>
+                <select>
+                        <option value="Default">Default</option>
+                        <option value="Novice">Novice</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Hard">Hard</option>
+                      </select>
+                      <input type="text"class ='speed' name="Speed" value="10"><br>
+                      <input type="text"class ='length' name="Length" value="10"><br>
+                      <input type="text"class ='width' name="Width" value="600"><br>
+                      <input type="text" class ='height'name="Height" value="400"><br>
+                      <input  type="text"class ='apples' name="Apples" value="1"><br>
+          </div>
+    </nav>
+    <button type="button">Click Me!</button> 
+  
+    <script src = 'edited.js'></script>
 </body>
 </html>
