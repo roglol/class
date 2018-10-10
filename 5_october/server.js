@@ -3,7 +3,9 @@ const path = require('path');
 const app = express()
 app.use(express.urlencoded({ extended: true}))
 app.use(express.static(path.join( __dirname, 'public', )))
+const productsRoutes = require('./src/routes/productsRoutes')
 let productsDB = []
+const router = express.Router()
 
 // app.get('/calc', (req, res) => {
 //     let num_1 = parseFloat(req.query.num_1);
@@ -30,8 +32,9 @@ let productsDB = []
 //    res.sendFile('davaleba.html', { root: path.join( __dirname, 'public', )} );
 // })
 
-app.set('views', './views')
+app.set('views', './src/views')
 app.set('view engine', 'pug')
+app.use('/products',productsRoutes)
 
 // app.get('/', function(req,res) {
 //     res.render('index', {title: 'Hey', message: 'Hello there!'})
