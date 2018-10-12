@@ -12,7 +12,7 @@ router.get('/', (req,res)=>{
    res.render('product/index', {title: 'Products Page', products})
 })
 
-router.get('/:id(\\id)', (req,res)=>{
+router.get('/:id(\\d)', (req,res)=>{
     let id = req.params.id;
     res.render('product/detail', {title: `product - ${id}`, product:products[id]})
  })
