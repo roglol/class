@@ -46,12 +46,20 @@ app.get('/', (req, res) => {
         productsDB })
 })
 
+
+
 app.post('/', (req, res) => {
     const { product_name, product_price, product_id } = req.body;
     productsDB.push( {product_id, product_name, product_price} )
     res.render('index', {
         title: "DEMO Title", 
-        added: true, 
+        added: true,
+        productsDB})
+})
+app.get('/products', (req,res)=>{
+    res.render('product/index', {
+        title: "Product Page", 
+        added: true,
         productsDB})
 })
 

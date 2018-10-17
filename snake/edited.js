@@ -76,6 +76,8 @@ class SnakeBody {
       this.fillColor = fillColor
     }
     created(){
+    ctx.strokeStyle = 'black'
+    ctx.strokeRect(this.topLeftX, this.topLeftY, this.boxWidth, this.boxHeight)
     ctx.fillStyle = this.fillColor
     ctx.fillRect(this.topLeftX, this.topLeftY, this.boxWidth, this.boxHeight)
     }

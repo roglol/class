@@ -8,9 +8,9 @@ let products =[
 
 ]
 
-router.get('/', (req,res)=>{
-   res.render('product/index', {title: 'Products Page', products})
-})
+// router.get('/', (req,res)=>{
+//    res.render('product/index', {title: 'Products Page', products})
+// })
 
 router.get('/:id(\\d)', (req,res)=>{
     let id = req.params.id;

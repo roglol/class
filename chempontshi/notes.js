@@ -31,13 +31,22 @@ let  addNote =(title, body) =>{
      }
     }
 let getAll = () =>{
-    console.log('getting all notes')
+    return fetchNotes()
 }
 let readAll = (title) =>{
-    console.log(`reading ${title}`)
+    let notes = fetchNotes()
+    let filteredNotes = notes.filter((note) => {
+        return note.title === title
+    })
+    return filteredNotes[0]
+
 }
 let removeNote = (title) =>{
-    console.log(`removing ${title}`)
+  let notes = fetchNotes()
+  let filteredNotes = notes.filter((note) => note.title !== title)
+  saveNotes(filteredNotes)
+
+  return notes.length !== filteredNotes.length
 }
 module.exports = {
     addNote,
