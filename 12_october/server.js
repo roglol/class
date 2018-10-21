@@ -42,8 +42,7 @@ app.post('/', (req,res)=>{
 })
 
 app.get('/', (req,res) =>{
-    // res.sendFile('index.html', { root: path.join( __dirname, 'public', )} )
-
+            
     res.render('index', { 
         title: "dwdwadwadwa", 
         color:req.cookies.color})
