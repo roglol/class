@@ -1,0 +1,19 @@
+* {
+    margin:0;
+    padding:0;
+}
+#moviesTable{
+    border-collapse: collapse;
+    margin-top: 5px;
+    width:100%;
+}
+.container{
+    width: 60%;
+    margin: 0 auto;
+}
+
+#moviesTable th,
+#moviesTable td{
+    border: 1px solid black;
+    padding: 5px;
+}

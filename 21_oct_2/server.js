@@ -9,6 +9,10 @@ app.use( express.static( path.join(__dirname, '/public') ) );
 
 // /api/movies
 // /api/movies/:id
-app.use('/api', MoviesController);
+app.use('/api/v1', MoviesController);
+
+app.get('/', (req,res) =>{
+    res.sendFile(path.join(__dirname, '/public', 'index.html'))
+})
 
 app.listen(3000)
