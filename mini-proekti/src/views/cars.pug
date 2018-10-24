@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+body
+    h1= title
+    div
+       p= `Mark -${car.mark}, Model -${car.model}, VIN -${car.vin}, Number - ${car.number}, Color - ${car.color}`
+       form(action="http://localhost:3000/cars", method="post", style={'margin-right': '10px'})
+        p
+            input(type="text", name="mark", placeholder="Mark", required)
+        p
+            input(type="text", name="model", placeholder="Model", required)
+        p
+            input(type="number", name="vin", placeholder="VIN", required)
+        p
+            input(type="number", name="number", placeholder="number", required)
+        p
+            input(type="text", name="color", placeholder="color", required)
+        p
+        p
+            button(type="submit") Edit
