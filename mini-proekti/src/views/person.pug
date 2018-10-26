@@ -6,7 +6,7 @@ body
     div
        p= `id -${person.id}, name -${person.name}, surname -${person.surname}, birthday - ${person.birthday}`
        if person.park
-          h1 Owns:
+        p Ownes:
           each car in person.park
             p= `Mark -${car.mark}, Model -${car.model}, VIN -${car.vin}, Number - ${car.number}, Color - ${car.color}`
        form(action=`http://localhost:3000/persons/edit?ide=${person.id}`, method="post", style={'margin-right': '10px'})
@@ -20,3 +20,4 @@ body
             input(type="text", name="birthday", placeholder="Birthday")
         p
             button(type="submit") Edit
+        a(href='http://localhost:3000') Go Home

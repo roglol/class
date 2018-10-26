@@ -2,9 +2,8 @@ doctype html
 html
     head
 body
-    h1= title
     div
-       h1= `${movie.title}`
+       h1= movie.title
        form(action=`http://localhost:3000/api/v1/movies/edit?ide=${movie.title}`, method="post", style={'margin-right': '10px'})
         p
             input(type="text", name="title", placeholder="Title")

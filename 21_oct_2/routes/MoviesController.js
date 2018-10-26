@@ -38,7 +38,7 @@ router.route('/movies/edit/:id').post((req,res) =>{
     console.log(movie)
     
     res.render('edit',{
-        movie: movie
+        movie:movie
    })
 })
 
