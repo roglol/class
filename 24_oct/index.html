@@ -8,104 +8,90 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+      .box{
+        border: 3px solid black;
+padding: 15px;
+      }
+      .default {
+        border: 2px solid #222;
+        padding: 15px;
+        background-color: #eee;
+}
+.VW {
+    background-color: seagreen
+}
+    </style>
   </head>
 <body>
     
-   <div id='app'></div>
+   <div id='root'></div>
    <script type='text/babel'>
-        const reactKey = (Symbol && Symbol.for('react.element')) || 0xeac7;
+      function ComponentDemo(params){
+        let info = 'Demo Code';
+        return (
+            <React.Fragment>
+              <h1>Hello React</h1>
+              <h2>Hello {info}</h2>
+              </React.Fragment>
+        )
+}
 
-        const reactElement = {
-          $$typeof: reactKey,
-          ref: null, 
-          type: 'h1',
-          props: {
-            children: "Hello World, React!..",
-            className: "super__class",
-            style: {
-              textAlign: 'center',
-              color: 'darksalmon'
-            },
-            onClick: function(reactEventObject){
-               alert('Hello React')
-          }
-          },
-       
-    }
-    const reactElement2  ={
-      $$typeof: reactKey,
-      ref:null,
-      type:'p',
-      props:{
-        children: "Paragraph Demo"
-      }
-     }
+function Demo(props){
+  
+  return (
+    <div className={props.demoClass}>
+      <h1>Hello Box</h1>
+      <h2>Hello {props.data}</h2>
+      </div>
+  )
+}
 
-     const reactElement3 = React.createElement('h1', {
-       className: "demo_class",
-       style:{
-              textAlign: 'center',
-              color: 'darksalmon'
-            },
-            onClick: function(reactEventObject){
-               alert('Hello React')
-          }
+Demo.defaultProps ={
+  demoClass: 'default',
+  data: "default data"
+}
+let  destruct = {
+  demoClass: 'box',
+  data: "data for component"
+}
 
-     }, "React.createElement()")
-
-     const jsxElement = (
-       <h1
-       className="jsx__class"
-       style={{textAlign:'center', color:"seagreen"}}
-       onClick = {function(){alert("JSX Demo")}}>
-       Hello  <span style={{color:"#444"}}>JSX</span>
-       </h1>
+function Car(props){
+     return (
+       <div className={props.className}>
+           <h1>Make - {props.make}</h1>
+           <h1>Year - {props.year}</h1>
+        </div>
      )
-     const propertiesExample = {
-       className: "demo_class container",
-       onClick: () => alert('propertiesExample Alert')
-     }
-     
-     const nestElement = <h3>Nested Element h3</h3>
-     const multElements = (
-         <div {...propertiesExample}>
-         <h1>Hello Page</h1>
-         <h2>Page description</h2>
-         {nestElement}
-         {superComponent3()}
-         </div>
-         
-     )
+}
+Car.propTypes = {
+  make: PropTypes.string,
+  year: PropTypes.number,
+  className: PropTypes.string.isRequired
+}
 
-     function superComponent(){
-       const info = "superComponent Info";
-       return (
-         <div>
-         <h1>Hello</h1>
-         <h2>{info}</h2>
+const cars = [
+  {make:"VW", year: 2018, className:'box VW'},
+  {make:"Audi", year: 2019, className:'box'},
+  {make:"Skoda", year: 2017, className:'box'},
+  {make:"Range Rover", year: 2020, className:'box'}
+]
 
-         </div>
-       )
-     }
-     function superComponent2(){
-       const info = "superComponent Info";
-       return [<h1 key="hello">Hello</h1>, <h2 key="info">{info}</h2>]
-     }
+let carsDom = cars.map((car,index) =>{
+  return (
+    <Car
+    className= {car.className}
+    make={car.make}
+    year={car.year}
+    key={index}
+    />
+  )
+})
+let element = <ComponentDemo/>
+let App = <div>{carsDom}</div>
 
-     function superComponent3(){
-      const info = "superComponent Info";
-      return(<React.fragment>
-           <h1>Hello</h1>
-           <h2>{info}</h2>
-      </React.fragment>
-      )
-     }
-     const App = document.getElementById('app')
-      ReactDOM.render(multElements, App)
+ReactDOM.render(App, document.getElementById('root'))
 
-
-
-      
-   </script>
+</script>
 </body>
 </html>
