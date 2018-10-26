@@ -2,9 +2,13 @@ doctype html
 html
     head
 body
-    h1= title
+    div
+       form(action="http://localhost:3000/admin", method="get", style={'margin-right': '10px'})
+         p
+            button(type="submit") Admin
     div(style={'display': 'flex'})
        form(action="", method="post", style={'margin-right': '10px'})
+        h1 Add Person
         p
             input(type="text", name="name", placeholder="Name", required)
         p
@@ -15,13 +19,23 @@ body
             input(type="text", name="birthday", placeholder="Birthday", required)
         p
             button(type="submit") Add Person
-       form(action="", method="post")
+
+
+       form(action="http://localhost:3000", method="post")
+        h1 Add Car
         p
-            input(type="text", name="product_name", placeholder="Product Name", required)
+            input(type="text", name="mark", placeholder="Mark", required)
         p
-            input(type="number", name="id", placeholder="Product ID", required)
+            input(type="text", name="model", placeholder="Model", required)
         p
-            input(type="number", name="product_price", placeholder="Product Price", required)
+            input(type="number", name="vin", placeholder="VIN", required)
+        p
+            input(type="number", name="number", placeholder="number", required)
+        p
+            input(type="text", name="color", placeholder="color", required)
+        h1 Owner
+        p
+            input(type="number", name="personId", placeholder="Owner ID", required)
         p
             button(type="submit") Add Car
     div(style={'display': 'flex'})
@@ -30,11 +44,12 @@ body
             input(type="number", name="id", placeholder="ID", required)
         p
             button(type="submit") Search Person
-       form(action="", method="post", style={'margin-right': '10px'})
+       form(action="http://localhost:3000/cars", method="post", style={'margin-right': '10px'})
         p
             input(type="number", name="vin", placeholder="VIN", required)
         p
             button(type="submit") Search Car
+    
 
 
 

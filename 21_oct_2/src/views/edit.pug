@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+body
+    div
+       h1= movie.title
+       form(action=`http://localhost:3000/api/v1/movies/edit?ide=${movie.title}`, method="post", style={'margin-right': '10px'})
+        p
+            input(type="text", name="title", placeholder="Title")
+        p
+            input(type="text", name="description", placeholder="Description")
+        p
+            input(type="text", name="genre", placeholder="Genre")
+        p
+            input(type="number", name="year", placeholder="Year")
+        p
+            button(type="submit") Edit

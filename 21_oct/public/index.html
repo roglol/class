@@ -8,9 +8,18 @@
     <title>Document</title>
 </head>
 <style>
-    body{
+  #moviesTable{
+    border-collapse: collapse;
+    margin-top: 5px;
+    width:100%;
+}
+.container{
+    width: 60%;
+    margin: 0 auto;
+}
+    /* body{
         background-color: red;
-    }
+    } */
     .lds-roller {
   display: inline-block;
   position: relative;
@@ -104,7 +113,7 @@
 
 </style>
 <body>
-    <div>
+    <!-- <div>
         <input List="brands">
     <datalist id='brands'>
         <option value="VW">
@@ -142,6 +151,7 @@
         </div>
         <div>
             <button type='button' id='addBtn'>vaimeeee</button>
+    
         </div>
         <br>
         <div class="lds-roller loader--hide" id="loader">
@@ -154,7 +164,23 @@
             <div></div>
             <div></div>
           </div>
-        <span id='result'></span>
+        <span id='result'></span> -->
+        <label>
+            Search Books:<input type='text' id='btn'>
+        </label>
+        <div class='container'>
+        <table id='moviesTable'>
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Authors</th>
+                  <th>Publisher</th>
+                  <th>Publication Date</th>
+              </tr>
+          </thead>
+          <tbody id='moviesList'></tbody>
+      </table>
+      </div>
         <script src='dist/jquery.min.js'></script>
         <script src='js/main.js'></script>
 </body>
