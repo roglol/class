@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+  </head>
+<body>
+    
+   <div id='root'></div>
+   <script type='text/babel'>
+    function DateFormat(props){
+        let date = props.date;
+        let delimeter = props.delimeter
+        let day = date.getDate()
+        let month = date.getMonth()
+        let year = date.getFullYear()
+        return (
+        
+            <span>{day}{delimeter}{month}{delimeter}{year}</span>
+        
+        )
+    }
+
+    DateFormat.propTypes = {
+        date:PropTypes.instanceOf(Date).isRequired
+    }
+    DateFormat.defaultProps = {
+        delimeter: ':'
+    }
+    
+
+    const List = (props) =>{
+        return <ul>{props.children}</ul>
+    }
+    const Item = (props) => {
+        return <li>{props.children}</li>
+    }
+    List.defaultProps = {
+        children: <Item>Empty List</Item>
+    }
+
+    function App(){
+        return (
+            <>
+            <List/>
+            <List>
+            <Item>
+            <DateFormat date={new Date()} delimeter="/"/>
+            </Item>
+            <Item>First</Item>
+            <Item>SEcond</Item>
+            </List>
+            </>
+            )
+        }
+     ReactDOM.render(<App/>, document.getElementById('root'))
+   
+</script>
+</body>
+</html>
