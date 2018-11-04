@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Doc</title>
+</head>
+<body>
+    <script>
+       let persons = [
+           {
+               name: 'Oto',
+               age: 22,
+               id: 1,
+           },
+           {
+               name: 'Grigoli',
+               age: 20,
+               id: 2,
+           },
+           {
+               name: 'Mamuka',
+               age: 20,
+               id: 14,
+           },
+           {
+               name: 'Salome',
+               age: 17,
+               id: 10,
+           },
+
+
+       ] 
+
+       let personsHTML = persons.map( person=> `<p>User - ${person.name}, Id - ${person.id}</p>`)
+       let personsFiltered = persons.filter( person => {
+         return person.age < 20
+       }).map( person=> `<p>User - ${person.name}, Id - ${person.id}</p>`)
+
+        let numbers = [2,3,7,8]
+        Array.prototype.customReduce = function(callback, num){
+            let result = num
+                    for(let i = 0; i <this.length; i++){
+                        
+                     result = callback(result,this[i])
+                      }
+                      return result
+                    }
+
+               
+
+         
+        
+        console.log(numbers.customReduce((total, current) => {
+           return total += current
+       }, 0))
+        document.body.innerHTML = personsHTML.join(' ');
+        document.body.innerHTML += '<hr>'
+        document.body.innerHTML += personsFiltered.join(' ')
+    </script>
+</body>
+</html>
