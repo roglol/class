@@ -13,7 +13,14 @@ class App extends Component {
     isLoading: true,
 
   }
-
+  
+  // onSearchHandler = (e) =>{
+  //    this.setState({query: e.target.value})
+  // }
+  onSubmit = (e) =>{
+          const query = e.target.children.searchText.value
+          this.setState({query, isLoading:true})
+  }
   componentDidMount(){
     fetch(`${url}${this.state.query}`)
     .then(data => data.json())
@@ -22,10 +29,19 @@ class App extends Component {
     })
     .catch(err => console.log(err))
   }
+  componentDidUpdate(){
+    fetch(`${url}${this.state.query}`)
+    .then(data => data.json())
+    .then(data =>{
+  //  console.log(data)
+      this.setState({data, isLoading: false})
+    })
+    .catch(err => console.log(err))
+  }
   render() {
     return (
       <div className="wrapper">
-        <Search/>
+        <Search  onSubmit={this.onSubmit}/>
         { this.state.isLoading && <Loader/> }
         { !this.state.isLoading && <List limit={10} data={this.state.data.hits}/>}
        </div>
