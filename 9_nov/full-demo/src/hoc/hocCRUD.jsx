@@ -16,7 +16,6 @@ function hocCRUD(CustomComponent, API_URL){
                  .then(response => response.data)
                  .then( data => {
                     this.setState({data})
-                    console.log(this.state.data)
                  })
              }
 
