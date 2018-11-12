@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<style>
+    div span{
+        cursor:pointer;
+    }
+</style>
+</head>
+<body>
+    <div id="app"></div> 
+    <script src="scripts/app1.js" type='text/babel'>
+    
+    
+    </script>
+    <!-- <script>
+      function generateDom(){
+          for(let i = 0; i<4; i++){
+              let div = document.getElementById('app')
+              let a = document.createElement('div')
+              a.classList.add('vaime')
+              let b = document.createElement('span')
+              b.textContent = 'X'
+              let c = document.createElement('p')
+              c.style.margin='0px'
+              c.textContent = `Otiko${i}`
+              a.appendChild(c)
+              a.appendChild(b)
+              a.style.display = 'flex'
+              a.style.justifyContent='space-around'
+              a.style.width='100px'
+              a.style.marginBottom = '10px'
+              div.appendChild(a)
+          }
+      }
+      generateDom()
+      function del(){
+          let f = document.querySelectorAll('.vaime')
+          for(let item of f){
+              item.lastChild.onclick = () => item.remove()
+            console.log(item.lastChild)
+          }
+      }
+      del()
+    </script> -->
+</body>
+</html>
