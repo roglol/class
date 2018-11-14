@@ -9,7 +9,7 @@ const Slide = ({image}) => {
     }
     return (
         <div className="slide" style={styles}>
-        <div className='pic1'>
+        {/* <div className='pic1'>
         <div className='img1'>
                 <div class='price1'>$499</div>
         </div>
@@ -24,7 +24,7 @@ const Slide = ({image}) => {
         <div>
       <i className="fas fa-long-arrow-alt-right arrow"></i>
         </div>
-    </div>
+    </div> */}
     </div>
 
    ) 
