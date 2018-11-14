@@ -14,9 +14,6 @@ class App extends Component {
 
   }
   
-  // onSearchHandler = (e) =>{
-  //    this.setState({query: e.target.value})
-  // }
   onSubmit = (e) =>{
           const query = e.target.children.searchText.value
           this.setState({query, isLoading:true})
@@ -33,7 +30,7 @@ class App extends Component {
     fetch(`${url}${this.state.query}`)
     .then(data => data.json())
     .then(data =>{
-  //  console.log(data)
+   console.log(data)
       this.setState({data, isLoading: false})
     })
     .catch(err => console.log(err))
