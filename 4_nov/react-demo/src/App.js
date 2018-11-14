@@ -1,86 +1,58 @@
 import React, { Component } from 'react';
-import './App.css';
-
-const FETCHURL = 'https://jsonplaceholder.typicode.com/photos';
-
+import Slide from './Components/Slide'
+import LeftArrow from './Components/LeftArrow'
+import RightArrow from './Components/RightArrow'
+import './App.css'
 class App extends Component {
-  state = {
-    jsonData: null,
-    showSpinner: true
+  constructor(props){
+    super(props)
+
+    this.state = {
+      images: [
+        'https://placekitten.com/300/300',
+        "https://i.ytimg.com/vi/FC5-T9wB8y0/maxresdefault.jpg",
+        'https://media-cdn.tripadvisor.com/media/photo-s/0d/f5/45/ed/southern-iceland-glaciers.jpg',
+         "http://intermedia.ge/uploads/article_images/small/30691353515539.jpg",
+    ],
+      currentSlide: 0,
+      translateValue: 5,
+
+    }
+
+  }
+  
+
+  prevSlide = () => {
+    if(this.state.currentSlide == 0){
+      return
+    }
+  this.setState({currentSlide:this.state.currentSlide -1}) 
   }
 
-  componentDidMount(){
-    fetch(FETCHURL)
-      .then(res => res.json())
-      .then( users => {
-        // setTimeout(() => {
-          this.setState({jsonData : users, showSpinner : false})
-        // }, 3000)
-      })
-      .catch(err => console.log(err))
+  nextSlide = () => {
+    if(this.state.currentSlide == 1){
+      return
+    }
+    this.setState({currentSlide:this.state.currentSlide +1}) 
+
   }
 
   render() {
-    let persons = [
-      {
-        name: 'Oto',
-        age: 22,
-        id: 1,
-        isActive: false,
-      },
-      {
-        name: 'Grigoli',
-        age: 20,
-        id: 2,
-        isActive: true,
-      },
-      {
-        name: 'Mamuka',
-        age: 20,
-        id: 14,
-        isActive: true,
-      },
-      {
-        name: 'Salome',
-        age: 17,
-        id: 10,
-        isActive: false,
-      },
-    ]
-    const showList = true;
-
-    // if( !showList ){
-    //   return null;
-    // }
-
-
     return (
-      <div className="App">
-      <h2>Using Array.prototype.map()</h2>
-        {
-          showList && (
-            <ul>
-              { persons.map( person => <li key={person.id}>{person.name} {person.age}</li>) }
-            </ul>
-          )
-        }
-        
-        <h2>Using Array.prototype.filter()</h2>
-        <ul>
-          { persons
-                  .filter( person => person.isActive)
-                  .map( person => <li key={person.id}>{person.name} {person.age}</li>)
+      <div className="slider">
+          { <div className="slider__container"
+          style={{
+            transform: `translateX(${this.state.translateValue}px)`,
+            transition: 'transform ease-in-out 0.45s',
+          }}>
+          {
+            this.state.images.slice(this.state.currentSlide,4).map( (image, index) => ( <Slide key={index} image={image} />) )
           }
-        </ul>
-        <h2>FETCHURL Data</h2>
-        { 
-          this.state.showSpinner ? <h3>Loading...</h3> : (
-            <ol>
-              { this.state.jsonData && this.state.jsonData.map( user => <li key={user.id}>{user.title}</li>) }
-            </ol>
-          )
-        }
-        
+          </div> }
+
+        <LeftArrow prevSlide={this.prevSlide} />
+        <RightArrow nextSlide={this.nextSlide}/>
+
       </div>
     );
   }
