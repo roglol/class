@@ -1,0 +1,366 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+body{
+  background:#fdfdfd;
+}
+header{
+  max-width: 70%;
+  display:flex;
+  margin:auto;
+  margin-top:15px;
+  justify-content:space-between;
+}
+header nav {
+  width: 50%;
+}
+header nav ul{
+  padding:0;
+  height:100%;
+  margin:0;
+  list-style-type:none;
+  display:flex;
+  justify-content:space-around;
+  color:#362cb3;
+  background: #fbfbfb;
+  border: 1px solid grey;
+  border-radius: 120px;
+}
+
+#dopos{
+  font-size: 40px;
+  color:#fe6d57;
+}
+#logo {
+text-align:center;
+margin-bottom: 10px;
+}
+#logo span{
+  color:#362cb3;
+  margin-right:10px;
+  font-size: 15px;
+
+}
+#logo i{
+  color: #fe6d57;
+  font-size: 30px;
+  border: 5px solid  #fe6d57;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+header nav ul li {
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  height:100%;
+  font-size: 15px;
+}
+header nav ul li:hover {
+  border-bottom:2px solid #fe6d57;
+}
+
+main {
+  padding-left:10%;
+  display:flex;
+  box-sizing:border-box;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  height:600px;
+  width:100%;
+  color:#231992
+}
+main > div{
+width: 50%;
+height:100%;
+}
+#main{
+  box-sizing:border-box; 
+  padding-top:80px;
+  padding-left:60px;
+ 
+}
+
+#img{
+  background-size: 180% 150%;
+  width:90%;
+  background-position:20% 50%
+}
+#mainheader{
+  font-size:50px;
+  margin-bottom:80px;
+}
+#mainparagraph{
+  display:flex;
+  font-size: 15px;
+  margin-bottom:60px;
+}
+#mainparagraph i{
+margin-right:20px;
+font-size: 30px;
+color: #231992;
+}
+main button{
+  background:none;
+  color: #231992;
+  padding: 20px 35px;
+  border:1px solid #fe6d57;
+  font-size: 12px;
+  border-radius: 100px;
+
+}
+main button span{
+  margin-right:10px;
+}
+main button i{
+  color: #fe6d57;
+}
+article{
+  display:flex;
+  height: 550px;
+  max-width: 80%;
+  margin:auto;
+  margin-bottom:70px;
+}
+.text{
+  width:45%;
+  height:100%;
+  padding-left:  50px;
+}
+.gallery{
+  display:flex;
+  flex-wrap:wrap;
+  width:  55%;
+  height:100%;
+}
+.gallery >div{
+  width:50%;
+  height: 50%;
+}
+.gallery div:nth-child(1){
+   background-size:cover;
+}
+.gallery div:nth-child(2){
+  background-size:cover;
+}
+.gallery div:nth-child(3){
+  background-size:cover;
+}
+.gallery div:nth-child(4){
+  background-size:cover;
+}
+
+.text div:nth-child(1){
+  color: #fe6d57;
+  font-size:10px;
+  letter-spacing:10px;
+  margin-bottom: 80px;
+}
+.text div:nth-child(2){
+  color: #231992;
+  font-size:40px;
+  margin-bottom: 130px;
+}
+.text div:nth-child(3){
+ background-color:#fe6d57;
+ width:40px;
+ height:2px;
+ margin-bottom:40px;
+}
+.text div:nth-child(4){
+  color: #231992;
+  font-size:15px;
+  margin-bottom:60px;
+}
+.text button{
+  background:none;
+  color: #231992;
+  padding: 15px 32px;
+  border:1px solid #fe6d57;
+  font-size: 12px;
+  border-radius: 100px;
+  
+}
+
+section {
+  height: 700px;
+  max-width: 80%;
+  margin:auto;
+  margin-bottom:70px;
+}
+
+section>div:nth-child(1){
+  color: #fe6d57;
+  font-size:10px;
+  letter-spacing:10px;
+  margin-bottom: 60px;
+  padding-left:43px;
+}
+section>div:nth-child(2){
+  color: #231992;
+  font-size:40px;
+  margin-bottom: 60px;
+  padding-left: 48px;
+}
+section>div:nth-child(3){
+  width:100%;
+  height: 250px;
+  background-size:cover;
+  margin-bottom: 70px;
+}
+section>div:nth-child(4){
+  max-width: 93%;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+}
+section>div:nth-child(4)>div:nth-child(1){
+  color:#231992;
+  line-height: 20px;
+}
+
+section>div:nth-child(4)>div:nth-child(1) button{
+  margin-top: 30px;
+  background:none;
+  color: #231992;
+  padding: 15px 32px;
+  border:1px solid #fe6d57;
+  font-size: 12px;
+  border-radius: 100px;
+}
+section>div:nth-child(4)>div:nth-child(2){
+  display:flex;
+  justify-content:space-between;
+  width: 20%;
+  padding-right: 60px;
+}
+.vaih >div:nth-child(1){
+  color:#fe6d57;
+  font-size:10px;
+  margin-bottom: 20px;
+}
+.vaih >div:nth-child(2){
+  color:#231992;
+  font-size:14px;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.vaih >div:nth-child(3){
+ background-color:#fe6d57;
+ width:40px;
+ height:2px;
+ margin-bottom:40px;
+}
+
+aside{
+  width:100%;
+  height:200px;
+  background-color:#f35135;
+  color:#fdfcfc;
+  line-height: 200px;
+}
+aside div{
+  display:flex;
+  max-width: 85%;
+  margin:auto;
+}
+aside div>div{
+flex:0 0 auto;
+height:100%;
+}
+aside div>div:nth-child(1){
+  width: 30%;
+  font-size:40px;
+  display:flex;
+  justify-content:center;
+}
+aside div>div:nth-child(2) i{
+  font-size:60px;
+}
+aside div>div:nth-child(2) {
+width:30%;
+display:flex;
+justify-content:space-between;
+}
+aside div>div:nth-child(3){
+  width: 20%;
+  display:flex;
+  justify-content: center;
+
+}
+aside button{
+  color:#fdfcfc;
+  background:none;
+  padding: 15px 32px;
+  border:1px solid #fdfcfc;
+  font-size: 12px;
+  border-radius: 100px;
+}
+
+/* slideeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer vaimeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee */
+.slider {
+  position: relative;
+  z-index: 1;
+  width: 900px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+}
+
+.slide {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eeeeee;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955) 300ms;
+}
+
+.back__arrow {
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  z-index: 100;
+  opacity: 0.5;
+  transition: all 300ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.next__arrow {
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  z-index: 100;
+  opacity: 0.5;
+  transition: all 300ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.slider__container:hover ~ .back__arrow,
+.back__arrow:hover {
+    left: 30px;
+    opacity: 1;
+}
+
+.slider__container:hover ~ .next__arrow,
+.next__arrow:hover {
+  opacity: 1;
+  right: 30px;
+}
+
+/* slideeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer vaimeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee */
+/* slideeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer vaimeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee */

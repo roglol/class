@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import Slide from './Components/Slide'
-import LeftArrow from '../../../18_nov/react-demo/src/Components/LeftArrow'
-import RightArrow from '../../../18_nov/react-demo/src/Components/RightArrow'
-import './App.css'
-class App extends Component {
+import Slide from './Slide'
+import LeftArrow from './LeftArrow'
+import RightArrow from './RightArrow'
+import '../App.css'
+class Slider extends Component {
   constructor(props){
     super(props)
 
     this.state = {
       images: [
         'https://placekitten.com/500/500',
-        'https://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/France/Paris/paris-vintage-car.jpg?imwidth=450',
+        'https://placekitten.com/500/501',
         'https://placekitten.com/500/502',
         'https://placekitten.com/500/503',
-        'https://placekitten.com/500/500',
-        "https://www.riotgames.com/darkroom/1440/f5f167c525dd1f3989bcfe9ebd3c7995:a842310bd11ee602459b324d098e0e02/barcelona-main.jpg",
-        'https://placekitten.com/500/503',
-        'https://placekitten.com/500/500',
+        
       ],
       currentSlide: 0,
       translateValue: 0
@@ -36,7 +33,7 @@ class App extends Component {
   }
 
   moveSlide = () => {
-    const translateValue = document.querySelector('.slider1').clientWidth;
+    const translateValue = document.querySelector('.slider').clientWidth;
     return translateValue;
   }
 
@@ -60,7 +57,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="slider1">
+      <div className="slider">
           <div className="slider__container"
           style={{
             transform: `translateX(${this.state.translateValue}px)`,
@@ -80,10 +77,10 @@ class App extends Component {
   }
 }
 
-App.defaultProps = {
+Slider.defaultProps = {
   loop: false,
-  slideCount: 4
+  slideCount: 1
 }
 
 
-export default App;
+export default Slider;

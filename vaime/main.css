@@ -2,7 +2,7 @@
     font-family: 'Roboto', sans-serif;
 }
 body{
-    background:#fbfbfb;
+    background:#fdfdfd;
 }
 header{
     max-width: 70%;
@@ -266,6 +266,7 @@ aside{
     background-color:#f35135;
     color:#fdfcfc;
     line-height: 200px;
+    margin-bottom: 150px;
 }
 aside div{
     display:flex;
@@ -303,4 +304,16 @@ aside button{
     border:1px solid #fdfcfc;
     font-size: 12px;
     border-radius: 100px;
+}
+
+#bottom{
+    display:flex;
+    max-width:75%;
+    height: 700px;
+    margin:auto;
+}
+#bottom > div{
+    width:33.333333%;
+    height:100%;
+    background:red;
 }
